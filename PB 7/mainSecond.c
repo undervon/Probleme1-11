@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     int handle_error = 0;
 
     /* open the needed object */
-    void* handle = dlopen("/home/ldvon/Desktop/programe 1-11/PB 7/libsample.so", RTLD_LOCAL | RTLD_LAZY);
+    void* handle = dlopen("/home/ldvon/Desktop/Probleme1-11/PB 7/libsample.so", RTLD_LOCAL | RTLD_LAZY);
     if (NULL == handle)
     {
         DBG_PRINT(1, "Error when allocating memory for the handle!");
