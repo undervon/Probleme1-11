@@ -18,8 +18,7 @@ void* initializeEngine(void)
         DBG_PRINT(1, "Error when allocating memory for the engine_data.consumer_thread!");
         exit(EXIT_FAILURE);
     }
-
-    pthread_exit(NULL);
+    return NULL;
 }
 
 int startEngine(void* engine)
@@ -39,8 +38,9 @@ int startEngine(void* engine)
 
 int produce(void* engine, int index)
 {
+    int rand_value = rand();
     DBG_PRINT(5, "Producer -> ID Thread:%ld, index:%d ", (long)engine, index);
-    push(engine_data.q, index);
+    push(engine_data.q, rand_value);
     return 0;
 }
 

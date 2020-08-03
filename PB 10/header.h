@@ -16,8 +16,6 @@ void* printThreads(void* thread);
 
 extern pthread_barrier_t barrier;
 extern bool stop_process;
-extern time_t local_time;
-extern int count;
 
 #endif /* P10_H */
 

@@ -11,7 +11,6 @@ pthread_barrier_t barrier;
  **/
 void* printThreads(void* thread)
 {
-    local_time = time(NULL);
     int pthread_error = 0;
     pthread_error = pthread_barrier_wait(&barrier);
     if (0 != pthread_error)
@@ -24,8 +23,8 @@ void* printThreads(void* thread)
     {
         for (int i = 0; i < COUNT_NUMBER; ++i)
             count = count + i;
-        DBG_PRINT(5, "Count:%d, time:%s", count, asctime(localtime(&local_time)));
-        DBG_PRINT(5, "Thread: %d", (*(int*)thread)++);
+        DBG_PRINT(5, "Time:%d, Thread: %d", (int)time(NULL), (*(int*)thread)++);
     }
+    printf("Count:%d\n", count);
     pthread_exit(NULL);
 }

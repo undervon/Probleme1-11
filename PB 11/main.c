@@ -13,6 +13,7 @@ int main(int argc, char const *argv[])
         DBG_PRINT(1, "Error when allocating memory for the producer_threads!");
         exit(EXIT_FAILURE);
     }
+    
     for (int i = 0; i < NUMBER_OF_PRODUCERS; i++)
     {
         pthread_error = pthread_create(&producer_threads[i], NULL, (void*)produce, (void*)(long)i);
