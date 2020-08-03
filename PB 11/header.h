@@ -4,15 +4,12 @@
 #include"headerQueue.h"
 
 #define NUMBER_OF_PRODUCERS 10
+#define NUMBER_OF_CONSUMER 1
 
 typedef struct _ENGINE_DATA
 {
     Queue* q;
-    pthread_mutex_t mutex;
-    pthread_cond_t producer;
-    pthread_cond_t consumer;
-    pthread_t consumer_thread;
-    int is_ready;
+    pthread_t* consumer_thread;
 }ENGINE_DATA;
 
 void* initializeEngine(void);
@@ -23,6 +20,5 @@ void stopEngine(void* engine);
 void destroyEngine(void* engine);
 
 extern ENGINE_DATA engine_data;
-extern int count;
 
 #endif /* P11_H */

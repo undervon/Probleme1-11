@@ -6,15 +6,18 @@
 #include<pthread.h>
 #include<stdbool.h>
 #include<unistd.h>
+#include<time.h>
 #include"../p4h.h"
 
 #define NUMBER_OF_THREADS 10
+#define COUNT_NUMBER 100
 
 void* printThreads(void* thread);
 
 extern pthread_barrier_t barrier;
-extern pthread_mutex_t mutex;
 extern bool stop_process;
+extern time_t local_time;
+extern int count;
 
 #endif /* P10_H */
 

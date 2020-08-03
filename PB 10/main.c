@@ -1,8 +1,7 @@
 #include"header.h"
 
-pthread_mutex_t mutex;
-pthread_barrier_t barrier;
 bool stop_process = true;
+time_t local_time;
 
 int main(int argc, char const *argv[])
 {   
@@ -32,13 +31,6 @@ int main(int argc, char const *argv[])
         exit(EXIT_FAILURE);
     }
 
-    pthread_error = pthread_mutex_init(&mutex, NULL);
-    if (0 != pthread_error)
-    {
-        DBG_PRINT(1, "Error! Code for pthread_mutex_init: %d", pthread_error);
-        exit(EXIT_FAILURE);
-    }
-
     pthread_error = pthread_barrier_init(&barrier, NULL, NUMBER_OF_THREADS);
     if (0 != pthread_error)
     {
@@ -60,19 +52,14 @@ int main(int argc, char const *argv[])
             thread_create[i] = true;
     }
 
-    pthread_error = pthread_barrier_wait(&barrier);
-    if (0 != pthread_error)
-    {
-        DBG_PRINT(1, "Error! Code for pthread_barrier_wait: %d", pthread_error);
-        exit(EXIT_FAILURE);
-    }
-
     sleep_error = sleep(5);
     if (0 != sleep_error)
     {
         DBG_PRINT(1, "Error! Sleep was interrupted.");
         exit(EXIT_FAILURE);
     }
+
+	stop_process = true;
 
     for (int i = 0; i < NUMBER_OF_THREADS; i++)
     {
@@ -85,13 +72,6 @@ int main(int argc, char const *argv[])
                 exit(EXIT_FAILURE);
             }
         }
-    }
-
-    pthread_error = pthread_mutex_destroy(&mutex);
-    if (0 != pthread_error)
-    {
-        DBG_PRINT(1, "Error! Code for pthread_mutex_destroy: %d", pthread_error);
-        exit(EXIT_FAILURE);
     }
 
     pthread_error = pthread_barrier_destroy(&barrier);

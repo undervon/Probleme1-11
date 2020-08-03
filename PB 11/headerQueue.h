@@ -35,6 +35,6 @@ extern pthread_mutex_t queue_mutex;
 /* 
  * Commands for the compiling on the command line.
  * gcc -c -Wall main.c functii.c functiiQueue.c
- * gcc -Wall main.o functii.o functiiQueue.o -o ex
+ * gcc -Wall main.o functii.o functiiQueue.o -o ex -lpthread
  * ./ex
  */
