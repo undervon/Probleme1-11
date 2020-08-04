@@ -19,6 +19,10 @@ int onConsume(void* engine, int index);
 void stopEngine(void* engine);
 void destroyEngine(void* engine);
 
-extern ENGINE_DATA engine_data;
+extern ENGINE_DATA* engine_data;
+extern pthread_cond_t condition;
+extern bool is_ready;
+extern bool* consumer_thread_created;
+extern bool* producer_thread_created;
 
 #endif /* P11_H */

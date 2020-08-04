@@ -8,6 +8,7 @@ int main(int argc, char const *argv[])
     int pthread_error = 0;
     int* value = NULL;
     bool* thread_create = NULL;
+    int i = 0;
 
     pthread_t* threads = (pthread_t*)malloc(sizeof(pthread_t) * NUMBER_OF_THREADS);
     if (NULL == threads)
@@ -37,7 +38,7 @@ int main(int argc, char const *argv[])
         exit(EXIT_FAILURE);
     }
 
-    for (int i = 0; i < NUMBER_OF_THREADS; i++)
+    for (i = 0; i < NUMBER_OF_THREADS; i++)
     {
         pthread_error = pthread_create(&threads[i], NULL, printThreads, (void*)value);
         if (0 != pthread_error) 
@@ -50,7 +51,7 @@ int main(int argc, char const *argv[])
             thread_create[i] = true;
     }
     
-    for (int i = 0; i < NUMBER_OF_THREADS; i++)
+    for (i = 0; i < NUMBER_OF_THREADS; i++)
     {
         if (true == thread_create[i])
         {

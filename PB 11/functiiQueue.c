@@ -1,6 +1,7 @@
 #include"headerQueue.h"
 
-pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER;
+/* pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER; */
+pthread_mutex_t queue_mutex;
 
 /**
  * \fn void initQueue(Queue* q)
@@ -10,6 +11,13 @@ pthread_mutex_t queue_mutex = PTHREAD_MUTEX_INITIALIZER;
  **/
 void initQueue(Queue* q)
 {
+    int pthread_error = 0;
+    pthread_error = pthread_mutex_init(&queue_mutex, NULL);
+    if (0 != pthread_error) 
+    {
+        DBG_PRINT(1, "Error! Code for pthread_mutex_init: %d", pthread_error);
+        exit(EXIT_FAILURE);
+    }
     q->head = NULL;
     q->tail = NULL;
 }

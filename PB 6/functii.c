@@ -27,6 +27,7 @@ void push(Queue* q, Atom data)
         DBG_PRINT(1, "Error when allocating memory for the node!");
         exit(EXIT_FAILURE);
     }
+
     node->date = data;
     node->next = NULL;
 
@@ -55,6 +56,7 @@ Atom pop(Queue* q)
         DBG_PRINT(1, "The queue is empty!");
         exit(EXIT_FAILURE);
     }
+
     Node* node = q->head;
     Atom return_value = node->date;
 

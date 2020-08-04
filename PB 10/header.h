@@ -10,7 +10,6 @@
 #include"../p4h.h"
 
 #define NUMBER_OF_THREADS 10
-#define COUNT_NUMBER 100
 
 void* printThreads(void* thread);
 

@@ -32,8 +32,9 @@ void printBits(uint32_t decimal_value)
      * 
      * The number will be displayed on 32 bits because sizeof(decimal_value) = 4 bytes.
      */
+    int i = 0;
     printf("%d (10) = ", decimal_value);
-    for (int i = sizeof(decimal_value) * 8 - 1; i >= 0; --i)
+    for (i = sizeof(decimal_value) * 8 - 1; i >= 0; --i)
     {
         if (0 == ((1 << i) & decimal_value))
             printf("%u", 0);

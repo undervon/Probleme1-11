@@ -18,7 +18,8 @@ uint32_t getValue(char* buffer, int offset, int buffer_size)
     }
     else
     {
-        for (int i = offset; i < buffer_size; ++i)
+        int i = 0;
+        for (i = offset; i < buffer_size; ++i)
         {
             if ('\0' == buffer[i])
                 break;

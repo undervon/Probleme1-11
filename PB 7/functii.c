@@ -17,9 +17,6 @@ int* allocInLib(void)
 
     DBG_PRINT(2, "Successful allocation!");
 
-    printf("Value for object: ");
-    scanf("%d", &*object);
-
     return object;
 }
 

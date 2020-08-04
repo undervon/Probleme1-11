@@ -5,6 +5,7 @@
 #include<pthread.h>
 #include<stdlib.h>
 #include<stdbool.h>
+#include<unistd.h>
 #include"../p4h.h"
 
 #define Atom int
