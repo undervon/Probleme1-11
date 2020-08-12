@@ -8,7 +8,7 @@ int main(int argc, char const *argv[])
     int repeat_action = 1;
     char* complete_file_name = NULL;
 
-    char* string_array[DIM_MAX_STRING_ARRAY];
+    char string_array[DIM_MAX_STRING_ARRAY][DIM_MAX_STRING_ARRAY];
 
     while (1 == repeat_action)
     {

@@ -14,13 +14,14 @@
 void* printThreads(void* thread);
 
 extern bool stop_process;
+
 extern pthread_mutex_t mutex;
 extern pthread_cond_t condition;
 
 #endif /* P10_H */
 
 /**
- * Commands for the compiling on the command line.
+ * Commands for the compiling on the command line
  * gcc -c -Wall main.c functii.c
  * gcc -Wall main.o functii.o -o ex -lpthread
  * ./ex

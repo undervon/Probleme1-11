@@ -7,7 +7,7 @@
 #include<stdbool.h>
 #include"../p4h.h"
 
-#define NUMBER_OF_WORD 6
+#define MAX_LINE 128
 
 typedef struct _Node
 {
@@ -17,9 +17,9 @@ typedef struct _Node
 }Node;
 
 bool isEmpty(Node* node);
-void insert(Node** node, char* value);
-void print(Node* node);
-void sort(Node** node);
+void insert_node(Node** node, char* value);
+void print_node(Node* node);
+void sort_node(Node** node);
 
 #endif /* O1_H */
 

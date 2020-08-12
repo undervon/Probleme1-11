@@ -52,7 +52,7 @@ void recovery_message(msg_buffer buffer, key_t key)
     }
 
     /* Receive an answer of message type 1 */
-    if (0 > msgrcv(msgqid, &buffer, MAX_TEXT, 1, 0))
+    if (0 > msgrcv(msgqid, &buffer, DIM_TEXT, 1, 0))
     {
         DBG_PRINT(1, "Error on msgrcv!");
         exit(EXIT_FAILURE);

@@ -5,6 +5,7 @@ int main(int argc, char const *argv[])
     int repeat_action = 1;
     key_t key = 1234;
     msg_buffer buffer;
+    char read_buffer[DIM_BUFFER];
 
     while (1 == repeat_action)
     {
@@ -17,8 +18,13 @@ int main(int argc, char const *argv[])
         case 1:
             getchar();
             printf("Enter a message: ");
-            scanf("%[^\n]", buffer.msg_text);
-            getchar();
+            fgets(read_buffer, sizeof(read_buffer), stdin);
+            /* scanf("%[^\n]", buffer.msg_text); */
+
+            strcpy(buffer.msg_text, read_buffer);
+            if ('\n' == buffer.msg_text[strlen(buffer.msg_text) - 1])
+                buffer.msg_text[strlen(buffer.msg_text) - 1] = '\0';
+
             sent_message(buffer, key);
             break;
 
@@ -35,7 +41,6 @@ int main(int argc, char const *argv[])
         scanf("%d", &repeat_action);
         printf("\n");
     }
-
 
     return 0;
 }

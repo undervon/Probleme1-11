@@ -8,7 +8,7 @@ int main(int argc, char const *argv[])
     pthread_t* threads = (pthread_t*)malloc(sizeof(pthread_t) * NUMBER_OF_THREADS);
     if (NULL == threads)
     {
-        DBG_PRINT(1, "Error when allocating memory for the threads!");
+        DBG_PRINT(1, "Error when allocating memory for the threads.");
         exit(EXIT_FAILURE);
     }
 

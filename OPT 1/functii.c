@@ -1,5 +1,11 @@
 #include"header.h"
 
+/**
+ * \fn bool isEmpty(Node* node)
+ * \brief Function that indicates whether the list is empty or not.
+ * \param[in] *node Structure.
+ * \return bool true when the list is empty / false otherwise
+ **/
 bool isEmpty(Node* node)
 {
     if (NULL == node)
@@ -8,7 +14,14 @@ bool isEmpty(Node* node)
         return false;
 }
 
-void insert(Node** node, char* value)
+/**
+ * \fn void insert_node(Node** node, char* value)
+ * \brief Function that inserts a string in the list.
+ * \param[in/out] **node Structure.
+ * \param[in] *value String.
+ * \return void
+ **/
+void insert_node(Node** node, char* value)
 {
     Node* temp_node = (*node);
     int ok = 0;
@@ -54,17 +67,29 @@ void insert(Node** node, char* value)
     }
 }
 
-void print(Node* node)
+/**
+ * \fn void print_node(Node* node)
+ * \brief Function that displays the contents of the list.
+ * \param[in] *node Structure.
+ * \return void
+ **/
+void print_node(Node* node)
 {
     while (NULL != node)
     {
-        printf("%s -> ", node->word);
+        printf("'%s' -> ", node->word);
         printf("%d\n", node->freq);
         node = node->next;
     }
 }
 
-void sort(Node** node)
+/**
+ * \fn void sort_node(Node** node)
+ * \brief Function that sorts the list in descending order.
+ * \param[in/out] **node Structure.
+ * \return void
+ **/
+void sort_node(Node** node)
 {
     Node* node_temp1 = (Node*)malloc(sizeof(Node));
     if (NULL == node_temp1)

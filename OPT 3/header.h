@@ -10,12 +10,13 @@
 #include<sys/types.h>
 #include"../p4h.h"
 
-#define MAX_TEXT 256    /* maximum message size */
+#define DIM_TEXT 256    /* maximum message size */
+#define DIM_BUFFER 128
 
 typedef struct _msg_buffer
 {
     long msg_type;
-    char msg_text[MAX_TEXT];
+    char msg_text[DIM_TEXT];
 }msg_buffer;
 
 void sent_message(msg_buffer buffer, key_t key);

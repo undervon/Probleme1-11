@@ -17,7 +17,7 @@ void* printThreads(void* thread)
     long argument = (long)thread;
     while (false == stop_process)
     {
-        DBG_PRINT(5, "The thread id: %ld works", argument);
+        DBG_PRINT(5, "The thread id: %ld works.", argument);
         pthread_cond_wait(&condition, &mutex);
     }
 
